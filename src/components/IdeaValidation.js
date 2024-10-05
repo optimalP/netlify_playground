@@ -36,7 +36,7 @@ function IdeaValidation() {
         
         <div>
           <label htmlFor="resume">Upload your resume (PDF, DOC, DOCX):</label>
-          <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" onChange={handleFileChange} required />
+          <input type="file" id="resume" name="resume" accept=".pdf" onChange={handleFileChange} required />
           {fileError && <p style={{color: 'red'}}>{fileError}</p>}
         </div>
 
