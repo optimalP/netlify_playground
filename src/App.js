@@ -14,7 +14,6 @@ function App() {
       <main>
         <Home />
         <About />
-        <div className="App">
       <h1>Netlify Form Test</h1>
 
       {/* Simple form for testing Netlify submission */}
@@ -41,7 +40,6 @@ function App() {
           <button type="submit">Submit</button>
         </p>
       </form>
-    </div>
         <Contact />
       </main>
       <Footer />
