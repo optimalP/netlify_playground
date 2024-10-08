@@ -32,11 +32,11 @@
     </section>
 
     <section id="idea-validation" class="my-5">
-      <h2>Enter for a referral</h2>
-      <p>Control your career journey</p>
+      <h2>Enter For a Referral</h2>
+      <p>Control your Career Journey</p>
 
       <!-- Netlify Form -->
-      <form name="idea-validation" method="POST" data-netlify="true">
+      <form id="ideaForm" name="idea-validation" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="idea-validation" />
 
          <!-- Honeypot field -->
@@ -54,9 +54,13 @@
           <input type="email" class="form-control" id="email" name="email" required>
         </div>
 
+        <!-- Resume Upload (With File Size Validation) -->
         <div class="mb-3">
           <label for="resume" class="form-label">Upload your resume (PDF, DOC, DOCX)</label>
-          <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+          <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
+          <div class="invalid-feedback" id="fileSizeError" style="display: none;">
+            File size exceeds 5MB. Please upload a smaller file.
+          </div>
         </div>
 
         <div class="mb-3">
@@ -81,6 +85,24 @@
     </section>
   </div>
 
+  <script>
+    // File size validation script
+    document.getElementById('ideaForm').addEventListener('submit', function(event) {
+      const fileInput = document.getElementById('resume');
+      const maxSize = 500 * 1024; // 500kB in bytes
+
+      // Check if a file was uploaded
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        
+        // If the file exceeds the max size, show an error message and prevent submission
+        if (file.size > maxSize) {
+          event.preventDefault();  // Prevent form submission
+          document.getElementById('fileSizeError').style.display = 'block';  // Show the error
+        }
+      }
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
 
