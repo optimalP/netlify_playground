@@ -11,7 +11,7 @@
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">My Website</a>
+      <a class="navbar-brand" href="#">Dayip</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,16 +28,21 @@
   <div class="container my-5">
     <section id="about">
       <h1>About Me</h1>
-      <p>Hello! I'm [Your Name], a developer passionate about creating applications.</p>
+      <p>Hello! I'm David, a developer passionate about creating applications.</p>
     </section>
 
     <section id="idea-validation" class="my-5">
-      <h2>Validate My Idea</h2>
-      <p>If you’re interested in my latest idea, fill out the form below to subscribe and be considered for an AMEX referral.</p>
+      <h2>Enter to for an AMEX referral</h2>
+      <p>I am here to help you in your Career journey</p>
 
       <!-- Netlify Form -->
       <form name="idea-validation" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="idea-validation" />
+
+         <!-- Honeypot field -->
+        <p class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
 
         <div class="mb-3">
           <label for="name" class="form-label">Your Name</label>
@@ -49,8 +54,13 @@
           <input type="email" class="form-control" id="email" name="email" required>
         </div>
 
+        <div class="mb-3"></div>
+          <label for="resume" class="form-label">Upload your resume (PDF, DOC, DOCX)</label>
+          <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+        </div>
+
         <div class="mb-3">
-          <label for="idea-feedback" class="form-label">Would you subscribe to this idea?</label>
+          <label for="idea-feedback" class="form-label">Would you like to stay updated on exciting new product ideas? Subscribe for exclusive insights and early access!</label>
           <select class="form-select" id="idea-feedback" name="idea-feedback" required>
             <option value="">Select an option</option>
             <option value="yes">Yes</option>
@@ -59,26 +69,21 @@
         </div>
 
         <div class="mb-3">
-          <label for="resume" class="form-label">Upload your resume (PDF, DOC, DOCX)</label>
-          <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-        </div>
-
-        <div class="mb-3">
           <label for="comments" class="form-label">Additional Comments</label>
           <textarea class="form-control" id="comments" name="comments"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </section>
+        <!-- Google reCAPTCHA widget -->
+        <div class="g-recaptcha" data-sitekey="6Ld22loqAAAAABGqVpxuDcM1Tzd4tujx_yiGoau6"></div>
 
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>Email: your-email@example.com</p>
+        <button type="submit" class="btn btn-primary">Sign me up!</button>
+      </form>
     </section>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <!-- Load the reCAPTCHA script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
